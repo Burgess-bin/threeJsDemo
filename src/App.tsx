@@ -1,11 +1,12 @@
 import './App.css'
-import Text3D from './pages/Text3D';
-import JumpRoll from './pages/JumpRoll';
+// import Text3D from './pages/Text3D';
+// import JumpRoll from './pages/JumpRoll';
+import WonderfulHouse from './pages/WonderfulHouse';
 
 function App() {
 
   return (
-    <JumpRoll />
+    <WonderfulHouse />
   )
 }
 
