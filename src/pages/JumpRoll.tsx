@@ -12,11 +12,13 @@ const JumpRoll = () => {
         const simpleShadow = textureLoader.load(SimpleShadow);
 
         // 初始化Three.js场景
+        const width: number = canvasRef.current?.clientWidth || 0;
+        const height: number = canvasRef.current?.clientHeight || 0;
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.shadowMap.enabled = false;
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(width, height);
         canvasRef.current?.appendChild(renderer.domElement);
 
         // 创建一个球体
@@ -36,7 +38,7 @@ const JumpRoll = () => {
         scene.add(plane);
 
         // 添加一个用于调试的GUI
-        const gui = new GUI();
+        const gui = new GUI({ container: canvasRef.current as HTMLElement, });
 
         // 环境光
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
@@ -112,7 +114,7 @@ const JumpRoll = () => {
             canvasRef.current?.removeChild(renderer.domElement);
         };
     }, []);
-    return <div ref={canvasRef} />
+    return <div className="w-full h-full relative" ref={canvasRef} />
 };
 
 export default JumpRoll;

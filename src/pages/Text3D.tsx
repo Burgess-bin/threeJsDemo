@@ -57,15 +57,18 @@ const Text3D = () => {
 
     //光源
 
+
+    const width: number = canvasRef.current?.clientWidth || 0;
+    const height: number = canvasRef.current?.clientHeight || 0;
     //相机
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
     camera.position.set(0, 0, 40);
     camera.lookAt(0, 0, 0);
 
     //渲染器
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     canvasRef.current?.appendChild(renderer.domElement);
     renderer.render(scene, camera);
 
@@ -90,7 +93,7 @@ const Text3D = () => {
   }, [])
 
   return (
-    <div ref={canvasRef} />
+    <div className="w-full h-full" ref={canvasRef} />
   )
 }
 

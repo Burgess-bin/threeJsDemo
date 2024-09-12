@@ -17,7 +17,7 @@ import grassAmbientOcclusion from '@/assets/wonderfulHouse/grass/ambientOcclusio
 import grassNormal from '@/assets/wonderfulHouse/grass/normal.jpg';
 import grassRoughness from '@/assets/wonderfulHouse/grass/roughness.jpg';
 
-const WonderfulHouse = () => {
+const SilentHouse = () => {
     //
     const canvasRef = useRef<HTMLDivElement>(null);
 
@@ -195,14 +195,16 @@ const WonderfulHouse = () => {
 
 
     useEffect(() => {
+        const width: number = canvasRef.current?.clientWidth || 0;
+        const height: number = canvasRef.current?.clientHeight || 0;
         // 创建场景
         const scene = new THREE.Scene();
         // 创建相机
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight);
+        const camera = new THREE.PerspectiveCamera(75, width / height);
         // 创建渲染器
         const renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(width, height);
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         renderer.setClearColor("#262837");
@@ -299,7 +301,7 @@ const WonderfulHouse = () => {
         }
 
     }, []);
-    return <div ref={canvasRef} />
+    return <div className="w-full h-full" ref={canvasRef} />
 };
 
-export default WonderfulHouse;
+export default SilentHouse;
