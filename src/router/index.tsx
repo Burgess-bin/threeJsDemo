@@ -4,6 +4,7 @@ import SilentHouse from "@/pages/SilentHouse";
 import Text3D from "@/pages/Text3D";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
+//
 export const router = createBrowserRouter([
     {
         path: '/',
