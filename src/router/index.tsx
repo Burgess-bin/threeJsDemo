@@ -1,4 +1,5 @@
 import App from "@/App";
+import Earth3D from "@/pages/3DEarth";
 import JumpRoll from "@/pages/JumpRoll";
 import SilentHouse from "@/pages/SilentHouse";
 import Text3D from "@/pages/Text3D";
@@ -28,6 +29,11 @@ export const router = createBrowserRouter([
                 path: '/silentHouse',
                 element: <SilentHouse />,
                 id: 'SilentHouse'
+            },
+            {
+                path: '/earth3d',
+                element: <Earth3D />,
+                id: '3D地球'
             }
         ]
     }
