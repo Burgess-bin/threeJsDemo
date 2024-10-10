@@ -33,7 +33,7 @@ export class World extends THREE.Object3D {
         // 初始化资源
         this.resources = new Resources(async () => {
             this.createEarth();
-            this.render()
+            this.animation();
         })
 
         // 监听控制器变化
@@ -54,7 +54,8 @@ export class World extends THREE.Object3D {
         this.basic.dispose();
     };
 
-    render() {
+    animation() {
+        requestAnimationFrame(() => this.animation());
         this.renderer.render(this.scene, this.camera)
     }
 

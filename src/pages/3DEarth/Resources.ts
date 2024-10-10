@@ -8,7 +8,8 @@ const fileSuffix = [
     'earth_aperture',
     'light_column',
     'aircraft',
-    'earth'
+    'earth',
+    "glow"
 ]
 
 export class Resources {
