@@ -63,10 +63,12 @@ export class Earth {
     private scene: THREE.Scene;
     public uniforms: uniforms;
     public timeValue: number;
+    private camera: THREE.Camera;
 
-    constructor(options: options, scene: THREE.Scene) {
+    constructor(options: options, scene: THREE.Scene, camera: THREE.Camera) {
         this.options = options;
         this.scene = scene;
+        this.camera = camera;
 
         //扫光动画;
         this.timeValue = 100;
@@ -262,12 +264,19 @@ export class Earth {
 
         cityData.forEach(item => {
             const startCity = new CityPoint(radius, this.options.textures.label, item.startArray, ligthTexture as THREE.Texture);
+            this.animation(startCity);
             earthGroup.add(startCity.cityGroup);
 
             item.endArray.forEach(end => {
                 const endCity = new CityPoint(radius, this.options.textures.label, end, ligthTexture as THREE.Texture);
+                this.animation(endCity);
                 earthGroup.add(endCity.cityGroup);
             });
         });
     };
+
+    animation(city: CityPoint) {
+        requestAnimationFrame(() => this.animation(city));
+        city.css3DRenderer.render(this.scene, this.camera)
+    }
 }

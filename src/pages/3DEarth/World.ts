@@ -52,6 +52,8 @@ export class World extends THREE.Object3D {
 
     dispose() {
         this.basic.dispose();
+        this.scene.clear();
+        this.renderer.dispose();
     };
 
     animation() {
@@ -87,7 +89,7 @@ export class World extends THREE.Object3D {
                 flyLineColor: 0xff7714, // 飞行线的颜色
                 speed: 0.004, // 拖尾飞线的速度
             }
-        }, this.scene);
+        }, this.scene, this.camera);
         console.log(this.earth);
     }
 
