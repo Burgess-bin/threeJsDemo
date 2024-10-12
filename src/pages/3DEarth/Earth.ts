@@ -264,19 +264,12 @@ export class Earth {
 
         cityData.forEach(item => {
             const startCity = new CityPoint(radius, this.options.textures.label, item.startArray, ligthTexture as THREE.Texture);
-            this.animation(startCity);
             earthGroup.add(startCity.cityGroup);
 
             item.endArray.forEach(end => {
                 const endCity = new CityPoint(radius, this.options.textures.label, end, ligthTexture as THREE.Texture);
-                this.animation(endCity);
                 earthGroup.add(endCity.cityGroup);
             });
         });
     };
-
-    animation(city: CityPoint) {
-        requestAnimationFrame(() => this.animation(city));
-        city.css3DRenderer.render(this.scene, this.camera)
-    }
 }

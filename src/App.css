@@ -1,0 +1,26 @@
+#root header {
+    background: #FFF;
+}
+
+.css3d-wapper {
+    width: fit-content;
+    pointer-events: none;
+    color: #fff;
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    z-index: -1;
+}
+
+.css3d-wapper .fire-div {
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 600;
+    border-top: 3px solid #0cd1eb;
+    padding: 3px 8px 12px;
+    /* min-width: 50px; */
+    background: rgba(40, 108, 181, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

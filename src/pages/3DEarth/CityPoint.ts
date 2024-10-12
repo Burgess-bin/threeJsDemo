@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { lon2xyz } from './common';
-import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer';
+import { lon2xyz } from './util/common';
+import html2canvas from 'html2canvas';
 
 interface Point {
     name: string;
@@ -15,7 +15,6 @@ export class CityPoint {
     private point: Point;
     public cityGroup: THREE.Group;
     private ligthTexture: THREE.Texture;
-    public css3DRenderer: CSS3DRenderer;
     constructor(radius: number, textures: THREE.Texture, point: Point, ligthTexture: THREE.Texture) {
         this.radius = radius;
         this.textures = textures;
@@ -23,9 +22,8 @@ export class CityPoint {
         this.ligthTexture = ligthTexture;
         this.cityGroup = new THREE.Group();
         this.clock = new THREE.Clock();
-        this.css3DRenderer = new CSS3DRenderer()
         this.init();
-    }
+    };
 
     init() {
         const cityMaterial = new THREE.MeshBasicMaterial({
@@ -53,28 +51,26 @@ export class CityPoint {
     };
 
     //添加标签
-    addLabel(curPoint: THREE.Vector3) {
-        console.log("addLabel", this.point.name)
-        this.css3DRenderer.setSize(window.innerWidth, window.innerHeight);
-        // HTML标签<div id="tag"></div>外面父元素叠加到canvas画布上且重合
-        this.css3DRenderer.domElement.style.position = 'absolute';
-        this.css3DRenderer.domElement.style.top = '0px';
-        //设置.pointerEvents=none，解决HTML元素标签对threejs canvas画布鼠标事件的遮挡
-        this.css3DRenderer.domElement.style.pointerEvents = 'none';
-        document.body.appendChild(this.css3DRenderer.domElement);
+    async addLabel(curPoint: THREE.Vector3) {
+        const html2canvasEle = document.getElementById('html2canvas');
+        if (!html2canvasEle) return;
+        html2canvasEle.innerHTML = `<div class="fire-div">${this.point.name}</div>`
 
-        const labelElement = document.createElement('div');
-        labelElement.textContent = this.point.name;
-        labelElement.style.fontSize = '12px';
-        // labelElement.style.scale = "0.1";
-        labelElement.style.color = 'white';
-        // labelElement.style.backgroundColor = '';
-        labelElement.style.padding = '2px 5px';
-        labelElement.style.borderRadius = '3px';
+        const opts = {
+            backgroundColor: null, // 背景透明
+            scale: 6,
+            dpi: window.devicePixelRatio,
+        };
 
-        const labelObject = new CSS3DObject(labelElement);
-        labelObject.position.set(curPoint.x, curPoint.y, curPoint.z);
-        this.cityGroup.add(labelObject);
+        const canvas = await html2canvas(html2canvasEle, opts);
+        const dataUrl = canvas.toDataURL();
+        const map = new THREE.TextureLoader().load(dataUrl);
+        const material = new THREE.SpriteMaterial({ map, transparent: true });
+        const sprite = new THREE.Sprite(material);
+        const len = 5 + (this.point.name.length - 2) * 2;
+        sprite.scale.set(len, 3, 1);
+        sprite.position.set(curPoint.x * 1.1, curPoint.y * 1.1, curPoint.z * 1.1);
+        this.cityGroup.add(sprite);
     };
 
     // 光柱动画
