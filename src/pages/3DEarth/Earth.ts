@@ -4,6 +4,7 @@ import earthVertex from './shaders/vertex.vs';
 import earthFragment from './shaders/fragment.fs';
 import cityData from './Data';
 import { CityPoint } from "./CityPoint";
+import { flyArc } from "./util/arc";
 
 export type punctuation = {
     circleColor: number,
@@ -12,6 +13,13 @@ export type punctuation = {
         endColor: number, // 终点颜色
     },
 };
+
+interface Fly {
+    rotation: {
+        z: number;
+    };
+    flyEndAngle: number;
+}
 
 export type options = {
     data: {
@@ -64,11 +72,18 @@ export class Earth {
     public uniforms: uniforms;
     public timeValue: number;
     private camera: THREE.Camera;
+    private flyLineArcGroup: THREE.Group;
+    private isRotation: boolean;
 
     constructor(options: options, scene: THREE.Scene, camera: THREE.Camera) {
         this.options = options;
         this.scene = scene;
         this.camera = camera;
+
+        this.flyLineArcGroup = new THREE.Group();
+
+        // 地球自转
+        this.isRotation = this.options.earth.isRotation
 
         //扫光动画;
         this.timeValue = 100;
@@ -140,6 +155,7 @@ export class Earth {
         this.addGlowPoint(earthGroup);
         this.createEarthAperture(earthGroup);
         this.addCityPoint(earthGroup);
+        this.createFlyLine(earthGroup);
         this.scene.add(earthGroup);
     };
 
@@ -272,4 +288,72 @@ export class Earth {
             });
         });
     };
+
+    // 创建飞线
+    createFlyLine(earthGroup: THREE.Group) {
+
+        this.flyLineArcGroup = new THREE.Group();
+        this.flyLineArcGroup.userData['flyLineArray'] = []
+        earthGroup.add(this.flyLineArcGroup)
+
+        this.options.data.forEach((cities) => {
+            cities.endArray.forEach(item => {
+
+                // 调用函数flyArc绘制球面上任意两点之间飞线圆弧轨迹
+                const arcline = flyArc(
+                    this.options.earth.radius,
+                    cities.startArray.E,
+                    cities.startArray.N,
+                    item.E,
+                    item.N,
+                    this.options.flyLine
+                );
+
+                this.flyLineArcGroup.add(arcline); // 飞线插入flyArcGroup中
+                this.flyLineArcGroup.userData['flyLineArray'].push(arcline.userData['flyLine'])
+            });
+
+        })
+
+    }
+
+    render() {
+
+        this.flyLineArcGroup?.userData['flyLineArray']?.forEach((fly: Fly) => {
+            fly.rotation.z += this.options.flyLine.speed; // 调节飞线速度
+            if (fly.rotation.z >= fly.flyEndAngle) fly.rotation.z = 0;
+        })
+
+        if (this.isRotation) {
+            this.earthGroup.rotation.y += this.options.earth.rotateSpeed;
+        }
+
+        this.circleLineList.forEach((e) => {
+            e.rotateY(this.options.satellite.rotateSpeed);
+        });
+
+        this.uniforms.time.value =
+            this.uniforms.time.value < -this.timeValue
+                ? this.timeValue
+                : this.uniforms.time.value - 1;
+
+        if (this.waveMeshArr.length) {
+            this.waveMeshArr.forEach((mesh: Mesh) => {
+                mesh.userData['scale'] += 0.007;
+                mesh.scale.set(
+                    mesh.userData['size'] * mesh.userData['scale'],
+                    mesh.userData['size'] * mesh.userData['scale'],
+                    mesh.userData['size'] * mesh.userData['scale']
+                );
+                if (mesh.userData['scale'] <= 1.5) {
+                    (mesh.material as Material).opacity = (mesh.userData['scale'] - 1) * 2; //2等于1/(1.5-1.0)，保证透明度在0~1之间变化
+                } else if (mesh.userData['scale'] > 1.5 && mesh.userData['scale'] <= 2) {
+                    (mesh.material as Material).opacity = 1 - (mesh.userData['scale'] - 1.5) * 2; //2等于1/(2.0-1.5) mesh缩放2倍对应0 缩放1.5被对应1
+                } else {
+                    mesh.userData['scale'] = 1;
+                }
+            });
+        }
+
+    }
 }
