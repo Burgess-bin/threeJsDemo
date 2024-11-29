@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import Stats from "three/examples/jsm/libs/stats.module.js";
-import textureImg from '@/assets/300.jpeg';
+import textureImg from '../../assets/300.jpeg';
 
 //引入外部个 gltf模型，并且初始化视角，加载模型动画，放大模型某个组件大小等;
 //7. 递归遍历层级模型修改材质
@@ -65,9 +65,9 @@ function Car() {
         const gltfLoader = new GLTFLoader();
         gltfLoader.load(
             "/model/bmw_m3/scene.gltf", (gltf) => {
-                const texture = new THREE.TextureLoader();
-                const mesh = gltf?.scene?.children[0];
-                // mesh.customDistanceMaterial
+                // const texture = new THREE.TextureLoader();
+                // const mesh = gltf?.scene?.children[0];
+                // mesh.customDistanceMaterial()
                 console.log("model", gltf);
                 const model = gltf?.scene;
                 model.scale.set(1, 1, 1);
@@ -80,11 +80,12 @@ function Car() {
                 node?.scale.set(2, 2, 1);
 
                 //递归 mesh组件；
-                model?.traverse((obj) => {
+                model?.traverse(() => {
                     // console.log("递归 mesh组件", obj, obj?.name)
                 });
 
                 //有material属性的组件 "Object_70"
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const haveMaterial: any = model?.getObjectByName("Object_70");
                 const texLoader = new THREE.TextureLoader();
                 texLoader.load(textureImg, (texture) => {
@@ -115,6 +116,7 @@ function Car() {
                 const fov = camera.fov * (Math.PI / 180); // 将视角转换为弧度
                 let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
 
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 cameraZ *= 1.5; // 可选：增加一个因子以确保模型完全显示在视图中
                 camera.position.set(5, 5, 0);
 

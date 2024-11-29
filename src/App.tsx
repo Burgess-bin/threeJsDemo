@@ -4,7 +4,7 @@ import { router } from './router';
 import github from './assets/logo/github.png';
 import juejin from './assets/logo/juejin.png';
 import csdn from './assets/logo/csdn.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../public/burgess.png';
 
 const linkUrl = {

@@ -132,6 +132,7 @@ export class Earth {
     };
 
     init() {
+        console.log(this.camera);
         this.earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(this.options.earth.radius, 64, 64);
 
@@ -282,7 +283,7 @@ export class Earth {
 
         const starGeometry = new THREE.BufferGeometry();
         starGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(vertexs), 3));
-        starGeometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(colors), 3));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(colors as unknown as number[]), 3));
         const star = new THREE.Points(starGeometry, starMaterial);
         this.scene.add(star);
     };
