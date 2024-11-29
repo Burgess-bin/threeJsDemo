@@ -1,0 +1,11 @@
+Model Information:
+* title:	BMW M5 CS
+* source:	https://sketchfab.com/3d-models/bmw-m5-cs-f28407cda1044fd28d82855be8af3e75
+* author:	thelightning (https://sketchfab.com/thelightning)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "BMW M5 CS" (https://sketchfab.com/3d-models/bmw-m5-cs-f28407cda1044fd28d82855be8af3e75) by thelightning (https://sketchfab.com/thelightning) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

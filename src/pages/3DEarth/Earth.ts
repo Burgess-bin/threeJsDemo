@@ -74,16 +74,30 @@ export class Earth {
     private camera: THREE.Camera;
     private flyLineArcGroup: THREE.Group;
     private isRotation: boolean;
+    public earthGroup: THREE.Group;
+    public circleLineList: any[];
+    public circleList: any[];
+    public x: number;
+    public n: number;
 
     constructor(options: options, scene: THREE.Scene, camera: THREE.Camera) {
         this.options = options;
         this.scene = scene;
         this.camera = camera;
 
+
+        this.earthGroup = new THREE.Group()
+
         this.flyLineArcGroup = new THREE.Group();
 
         // 地球自转
         this.isRotation = this.options.earth.isRotation
+
+        // 卫星和标签
+        this.circleLineList = []
+        this.circleList = [];
+        this.x = 0;
+        this.n = 0;
 
         //扫光动画;
         this.timeValue = 100;
@@ -118,7 +132,7 @@ export class Earth {
     };
 
     init() {
-        const earthGroup = new THREE.Group();
+        this.earthGroup = new THREE.Group();
         const earthGeometry = new THREE.SphereGeometry(this.options.earth.radius, 64, 64);
 
         const earth_border = new THREE.SphereGeometry(
@@ -135,7 +149,7 @@ export class Earth {
             size: 0.01, //定义粒子的大小。默认为1.0
         })
         const points = new THREE.Points(earth_border, pointMaterial); //将模型添加到场景
-        earthGroup.add(points);
+        this.earthGroup.add(points);
 
         this.options.textures.earth.wrapS = this.options.textures.earth.wrapT =
             THREE.RepeatWrapping;
@@ -150,13 +164,13 @@ export class Earth {
         earth_material.needsUpdate = true;
 
         const earth = new THREE.Mesh(earthGeometry, earth_material);
-        earthGroup.add(earth);
+        this.earthGroup.add(earth);
         this.addStarPoint();
-        this.addGlowPoint(earthGroup);
-        this.createEarthAperture(earthGroup);
-        this.addCityPoint(earthGroup);
-        this.createFlyLine(earthGroup);
-        this.scene.add(earthGroup);
+        this.addGlowPoint(this.earthGroup);
+        this.createEarthAperture(this.earthGroup);
+        this.addCityPoint(this.earthGroup);
+        this.createFlyLine(this.earthGroup);
+        this.scene.add(this.earthGroup);
     };
 
     //添加发光片精灵
@@ -325,6 +339,7 @@ export class Earth {
         })
 
         if (this.isRotation) {
+            console.log('this.earthGroup.rotation.y', this.earthGroup.rotation.y)
             this.earthGroup.rotation.y += this.options.earth.rotateSpeed;
         }
 
@@ -332,28 +347,28 @@ export class Earth {
             e.rotateY(this.options.satellite.rotateSpeed);
         });
 
-        this.uniforms.time.value =
-            this.uniforms.time.value < -this.timeValue
-                ? this.timeValue
-                : this.uniforms.time.value - 1;
+        // this.uniforms.time.value =
+        //     this.uniforms.time.value < -this.timeValue
+        //         ? this.timeValue
+        //         : this.uniforms.time.value - 1;
 
-        if (this.waveMeshArr.length) {
-            this.waveMeshArr.forEach((mesh: Mesh) => {
-                mesh.userData['scale'] += 0.007;
-                mesh.scale.set(
-                    mesh.userData['size'] * mesh.userData['scale'],
-                    mesh.userData['size'] * mesh.userData['scale'],
-                    mesh.userData['size'] * mesh.userData['scale']
-                );
-                if (mesh.userData['scale'] <= 1.5) {
-                    (mesh.material as Material).opacity = (mesh.userData['scale'] - 1) * 2; //2等于1/(1.5-1.0)，保证透明度在0~1之间变化
-                } else if (mesh.userData['scale'] > 1.5 && mesh.userData['scale'] <= 2) {
-                    (mesh.material as Material).opacity = 1 - (mesh.userData['scale'] - 1.5) * 2; //2等于1/(2.0-1.5) mesh缩放2倍对应0 缩放1.5被对应1
-                } else {
-                    mesh.userData['scale'] = 1;
-                }
-            });
-        }
+        // if (this.waveMeshArr.length) {
+        //     this.waveMeshArr.forEach((mesh: THREE.Mesh) => {
+        //         mesh.userData['scale'] += 0.007;
+        //         mesh.scale.set(
+        //             mesh.userData['size'] * mesh.userData['scale'],
+        //             mesh.userData['size'] * mesh.userData['scale'],
+        //             mesh.userData['size'] * mesh.userData['scale']
+        //         );
+        //         if (mesh.userData['scale'] <= 1.5) {
+        //             (mesh.material as THREE.Material).opacity = (mesh.userData['scale'] - 1) * 2; //2等于1/(1.5-1.0)，保证透明度在0~1之间变化
+        //         } else if (mesh.userData['scale'] > 1.5 && mesh.userData['scale'] <= 2) {
+        //             (mesh.material as THREE.Material).opacity = 1 - (mesh.userData['scale'] - 1.5) * 2; //2等于1/(2.0-1.5) mesh缩放2倍对应0 缩放1.5被对应1
+        //         } else {
+        //             mesh.userData['scale'] = 1;
+        //         }
+        //     });
+        // }
 
     }
 }

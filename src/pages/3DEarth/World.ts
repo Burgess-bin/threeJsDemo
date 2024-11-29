@@ -58,7 +58,13 @@ export class World extends THREE.Object3D {
 
     animation() {
         requestAnimationFrame(() => this.animation());
-        this.renderer.render(this.scene, this.camera)
+        this.renderer.render(this.scene, this.camera);
+        if (this.controls) {
+            this.controls.update();
+        }
+        if (this.earth) {
+            this.earth.render();
+        }
     }
 
     createEarth() {

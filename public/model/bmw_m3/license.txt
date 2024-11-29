@@ -1,0 +1,11 @@
+Model Information:
+* title:	BMW M3
+* source:	https://sketchfab.com/3d-models/bmw-m3-57e9c5fb413b4f73b7f1a1cd57728354
+* author:	WARENTERTAINMENT™ (https://sketchfab.com/WarEntertainment)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "BMW M3" (https://sketchfab.com/3d-models/bmw-m3-57e9c5fb413b4f73b7f1a1cd57728354) by WARENTERTAINMENT™ (https://sketchfab.com/WarEntertainment) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

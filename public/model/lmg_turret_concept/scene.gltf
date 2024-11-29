@@ -1,0 +1,559 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        1.204360842704773,
+        0.24904689192771912,
+        0.8527636528015137
+      ],
+      "min": [
+        -0.2450760006904602,
+        -0.6708936095237732,
+        -0.010290265083312988
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 315684,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        1.0,
+        1.0,
+        0.9999961853027344,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.9999862313270569,
+        -0.9999886155128479,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        0.9979928135871887,
+        0.9926701188087463
+      ],
+      "min": [
+        0.001994983060285449,
+        0.00199526478536427
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 210456,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        0.9979928135871887,
+        0.9926701188087463
+      ],
+      "min": [
+        0.001994983060285449,
+        0.00199526478536427
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 420912,
+      "componentType": 5126,
+      "count": 26307,
+      "max": [
+        0.9979928135871887,
+        0.9926701188087463
+      ],
+      "min": [
+        0.001994983060285449,
+        0.00199526478536427
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 73803,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 631368,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        6.3203325271606445,
+        -0.00039928319165483117,
+        -0.0009519692393951118
+      ],
+      "min": [
+        -2.476269006729126,
+        -0.0016739254351705313,
+        -0.0019145888509228826
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 633312,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.43378928303718567,
+        0.8385640382766724,
+        0.9177290201187134
+      ],
+      "min": [
+        -0.9999999403953552,
+        -0.8914567232131958,
+        -0.9215072393417358
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 420912,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        1.0,
+        0.9990676641464233,
+        0.9646221399307251,
+        -1.0
+      ],
+      "min": [
+        -0.22896601259708405,
+        -0.9864118695259094,
+        -0.9048520922660828,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 631368,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.9958801865577698,
+        0.06423246115446091
+      ],
+      "min": [
+        0.9955180883407593,
+        0.06370517611503601
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 632664,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.9958801865577698,
+        0.06423246115446091
+      ],
+      "min": [
+        0.9955180883407593,
+        0.06370517611503601
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 633960,
+      "componentType": 5126,
+      "count": 162,
+      "max": [
+        0.9958801865577698,
+        0.06423246115446091
+      ],
+      "min": [
+        0.9955180883407593,
+        0.06370517611503601
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 295212,
+      "componentType": 5125,
+      "count": 378,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Nortenko Dmytro (https://sketchfab.com/leondp)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/lmg-turret-concept-draft-2-a682fdb609dc42c3aab6f9215fd3a6ff",
+      "title": "LMG turret concept (draft 2)"
+    },
+    "generator": "Sketchfab-16.17.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 296724,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 635256,
+      "byteOffset": 296724,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 635256,
+      "byteOffset": 931980,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 423504,
+      "byteOffset": 1567236,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1990740,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_emissive_strength",
+    "KHR_materials_clearcoat",
+    "KHR_materials_transmission",
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/turret_baseColor.png"
+    },
+    {
+      "uri": "textures/turret_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/turret_emissive.jpeg"
+    },
+    {
+      "uri": "textures/turret_normal.png"
+    },
+    {
+      "uri": "textures/turret_transmission.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissiveTexture": {
+        "index": 2
+      },
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.30089084239210234,
+          "clearcoatNormalTexture": {
+            "index": 3
+          },
+          "clearcoatRoughnessFactor": 0.7799710084732265,
+          "clearcoatRoughnessTexture": {
+            "index": 1
+          }
+        },
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 10.0
+        },
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 0.444
+        },
+        "KHR_materials_transmission": {
+          "transmissionFactor": 1.0,
+          "transmissionTexture": {
+            "index": 4
+          }
+        }
+      },
+      "name": "turret",
+      "normalTexture": {
+        "index": 3
+      },
+      "occlusionTexture": {
+        "index": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "turret_turret_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "light_turret_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11,
+            "TEXCOORD_2": 12
+          },
+          "indices": 13,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0156242847442627,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.255138930583073e-16,
+        -1.0156242847442627,
+        0.0,
+        0.0,
+        1.0156242847442627,
+        2.255138930583073e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "5158468bd5e241c9b10d66da23f63489.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        177.001220703125,
+        35.386348724365234,
+        -7.074999809265137,
+        1.0
+      ],
+      "name": "root"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -2.646977960169688e-23,
+        0.0,
+        0.0,
+        2.646977960169688e-23,
+        1.0,
+        0.0,
+        -1.7699495553970337,
+        -0.07070579379796982,
+        -0.3281020522117615,
+        1.0
+      ],
+      "name": "turret"
+    },
+    {
+      "mesh": 0,
+      "name": "turret_turret_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -2.646977960169688e-23,
+        0.0,
+        0.0,
+        2.646977960169688e-23,
+        1.0,
+        0.0,
+        1.7699494361877441,
+        0.07070580124855042,
+        0.3281020522117615,
+        1.0
+      ],
+      "name": "light"
+    },
+    {
+      "mesh": 1,
+      "name": "light_turret_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    }
+  ]
+}

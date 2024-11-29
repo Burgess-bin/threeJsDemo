@@ -1,0 +1,11 @@
+Model Information:
+* title:	1930s Train Cabin
+* source:	https://sketchfab.com/3d-models/1930s-train-cabin-2f109ba713fe455b959e4d79676b5c2d
+* author:	thomas.rynne (https://sketchfab.com/thomas.rynne)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "1930s Train Cabin" (https://sketchfab.com/3d-models/1930s-train-cabin-2f109ba713fe455b959e4d79676b5c2d) by thomas.rynne (https://sketchfab.com/thomas.rynne) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
