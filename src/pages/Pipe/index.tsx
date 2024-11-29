@@ -30,7 +30,7 @@ function Pipe() {
         ]);
         const geometry = new THREE.TubeGeometry(path, 300, 5, 30);
         const texLoader = new THREE.TextureLoader();
-        const texture = texLoader.load('/src/assets/guandao2.jpeg');
+        const texture = texLoader.load('/guandao2.jpeg');
         // const texture = texLoader.load('/src/assets/guandao1.jpg');
         texture.wrapS = THREE.RepeatWrapping;
         texture.repeat.x = 10;

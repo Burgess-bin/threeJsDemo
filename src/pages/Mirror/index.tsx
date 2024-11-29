@@ -18,7 +18,7 @@ function Mirror() {
         });
 
         //环境贴图
-        const cubTexture = new THREE.CubeTextureLoader().setPath('/src/assets/Bridge2/').load(
+        const cubTexture = new THREE.CubeTextureLoader().setPath('/Bridge2/').load(
             ['posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg']
         );
         cubTexture.colorSpace = THREE.SRGBColorSpace;

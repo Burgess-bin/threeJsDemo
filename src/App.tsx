@@ -35,7 +35,7 @@ const Menu = () => {
                       "block pl-8 w-[150px] -ml-px dark:text-slate-400 dark:hover:text-slate-300 text-lg text-[#f7f7f780]",
                       `${selectedMenu === item.path ?
                         'text-sky-500 bg-[#252934] text-[#4d95ff]' :
-                        'text-slate-700 hover:text-[#4d95ff]  hover:border-slate-400 dark:hover:border-slate-500'}`,
+                        ' hover:text-[#4d95ff]  hover:border-slate-400 dark:hover:border-slate-500'}`,
                     ].join(" ")
                     }
                   >
